@@ -1,0 +1,60 @@
+{
+  "name": "@pxblue/react-native-vector-icons",
+  "title": "React Native PX Blue Vector Icons",
+  "version": "1.0.0-beta.1",
+  "description": "PX Blue vector icons for use in React Native projects, based on react-native-vector-icons",
+  "main": "index.js",
+  "files": [
+    "android",
+    "CHANGELOG.md",
+    "fonts.gradle",
+    "Fonts",
+    "GlyphMaps",
+    "index.js",
+    "index.d.ts",
+    "ios",
+    "LICENSE",
+    "RNPXBVectorIcons.podspec",
+    "README.md",
+    "!android/build",
+    "!ios/build"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash ./scripts/buildIcons.sh",
+    "publish:package": "set npm_config_yes=true && npx -p @pxblue/publish pxb-publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxblue/icons.git",
+    "baseUrl": "https://github.com/pxblue/icons/tree/master/react-native-vector-icons"
+  },
+  "keywords": [
+    "react-native",
+    "px blue",
+    "pxblue",
+    "icons",
+    "vector",
+    "power",
+    "eaton"
+  ],
+  "author": {
+    "name": "PX Blue",
+    "email": "pxblue@eaton.com"
+  },
+  "license": "BSD-3-Clause",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": ">=16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x",
+    "react-native-vector-icons": "^8.1.0"
+  },
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5",
+    "react-native-vector-icons": "^8.1.0",
+    "typescript": "^4.0.0",
+    "@types/react-native-vector-icons": "^6.4.8"
+  }
+}

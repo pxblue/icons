@@ -63,6 +63,7 @@ The icon font is a great way to include lots of icons in your application. If yo
 
 -   [SVG Icons](https://www.npmjs.com/package/@pxblue/icons-svg)
 -   [React Components](https://www.npmjs.com/package/@pxblue/icons-mui)
+-   [React Native Vector Icons](https://www.npmjs.com/package/@pxblue/react-native-vector-icons)
 
 We also have PX Blue oneline symbols (ported from PX Blue 1.0) available:
 

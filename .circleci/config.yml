@@ -7,19 +7,22 @@ jobs:
             - checkout
             - restore_cache:
                   keys:
-                      - v2-dependencies-{{ checksum "package.json" }}
+                      - v2-dependencies-{{ checksum "package.json" }}-{{ checksum "rn-vector/package.json"}}
                       - v2-dependencies-
             - run:
                   name: Install Dependencies
                   command: |
                       yarn install
+                      cd rn-vector && yarn install
             - save_cache:
                   paths:
                       - node_modules
-                  key: v2-dependencies-{{ checksum "package.json" }}
+                  key: v2-dependencies-{{ checksum "package.json" }}-{{ checksum "rn-vector/package.json"}}
             - run:
                   name: Build Packages
-                  command: yarn build
+                  command: | 
+                      yarn build
+                      cd rn-vector && yarn build
             - run:
                   name: Verify SVG Build Artifacts
                   command: yarn test
@@ -28,6 +31,7 @@ jobs:
                   paths:
                       - iconfont
                       - svg
+                      - rn-vector
 
     publish:
         docker:
@@ -47,12 +51,15 @@ jobs:
             - run:
                   name: Publish @pxblue/icons-svg
                   command: cd svg && yarn publish:package -b $CIRCLE_BRANCH
+            - run:
+                  name: Publish @pxblue/react-native-vector-icons
+                  command: cd rn-vector && yarn publish:package -b $CIRCLE_BRANCH
 workflows:
     version: 2
     icons:
         jobs:
             - build
-            - publish:
+            - publish_:
                   requires:
                       - build
                   filters:
